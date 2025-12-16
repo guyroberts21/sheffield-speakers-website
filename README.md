@@ -2,6 +2,12 @@
 
 A modern, responsive website for Sheffield Speakers Toastmasters Club built with Astro and Tailwind CSS.
 
+## Documentation
+
+- **[ADMIN_SETUP.md](./ADMIN_SETUP.md)** - Complete guide for setting up the admin dashboard and inviting users
+- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Step-by-step deployment to Netlify
+- **README.md** (this file) - Project overview and general information
+
 ## Features
 
 - Fast, static site generation with Astro
@@ -54,19 +60,19 @@ All club-specific information is centralized in `/src/config/club.ts`. Edit this
 
 ### Using Decap CMS (for non-technical editors)
 
+The admin dashboard uses Netlify Identity for secure, invitation-only access. Content editors are invited by email, set up their account, and can then create/edit articles through an intuitive CMS interface.
+
+**For complete setup instructions, see [ADMIN_SETUP.md](./ADMIN_SETUP.md)**
+
+Quick overview:
 1. Deploy the site to Netlify (see Deployment section)
-2. Set up Netlify Identity:
-   - Go to your Netlify site dashboard
-   - Navigate to Identity tab
-   - Click "Enable Identity"
-   - Under Settings > Identity > Registration, select "Invite only"
-   - Invite editors by email
-3. Enable Git Gateway:
-   - In Identity settings, enable Git Gateway
-4. Access the CMS:
-   - Go to `https://your-site.netlify.app/admin`
-   - Log in with invited email
-   - Create and edit articles without touching code
+2. Enable Netlify Identity on your site
+3. Enable Git Gateway in Netlify Identity settings
+4. Invite editors by email via Netlify Identity
+5. They accept invitation, set a password, and access `/admin`
+6. They can create/edit articles without touching code
+
+**Important**: There is no self-signup. Users must be invited first!
 
 ### Manual Content Editing (for developers)
 

@@ -61,14 +61,17 @@ netlify init
 
 ## Step 4: Configure Netlify Identity (for CMS Access)
 
-After your site is deployed:
+The admin dashboard at `/admin` uses Netlify Identity for secure, invitation-only access.
+
+**For detailed instructions, see [ADMIN_SETUP.md](./ADMIN_SETUP.md)**
+
+Quick setup:
 
 1. Go to your site dashboard on Netlify
 2. Navigate to **Identity** tab in the top menu
 3. Click **Enable Identity**
 4. Under **Settings and usage**, configure:
-   - **Registration preferences**: Select "Invite only"
-   - **External providers**: (optional) Enable if you want OAuth login
+   - **Registration preferences**: Select **"Invite only"**
    - **Services**: Enable **Git Gateway**
 
 ## Step 5: Invite Content Editors
@@ -76,17 +79,19 @@ After your site is deployed:
 1. In the Netlify dashboard, go to **Identity** tab
 2. Click **Invite users**
 3. Enter email addresses of people who should be able to edit content
-4. They'll receive an invitation email with a link to set up their account
+4. They'll receive an invitation email with a link
+5. They click the link, set a password, and can then access `/admin`
 
 ## Step 6: Access the CMS
 
-Once Identity is set up:
+Once Identity is configured:
 
-1. Editors can access the CMS at: `https://your-site.netlify.app/admin`
-2. First-time users will need to:
-   - Click the invitation link from their email
-   - Set a password
-   - Log in to the CMS
+1. Editors go to: `https://your-site.netlify.app/admin`
+2. They click "Login with Netlify Identity"
+3. They enter their email and password
+4. They see the Decap CMS interface and can create/edit articles
+
+**Note**: Users must be invited before they can log in - there's no self-signup!
 
 ## Step 7: Custom Domain (Optional)
 
