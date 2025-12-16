@@ -1,0 +1,189 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { clubConfig } from '../config/club';
+---
+
+<Layout title={clubConfig.clubName}>
+  <!-- Hero Section -->
+  <section class="bg-loyal-blue text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+        Welcome to {clubConfig.clubName}
+      </h1>
+      <p class="font-body text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+        {clubConfig.missionStatement}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={`mailto:${clubConfig.contactEmail}`}
+          class="bg-true-maroon hover:bg-opacity-90 text-white px-8 py-3 rounded-lg font-semibold transition-colors inline-block"
+        >
+          Visit Our Next Meeting
+        </a>
+        <a
+          href="/resources"
+          class="bg-white text-loyal-blue hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors inline-block"
+        >
+          Member Resources
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Join Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-center mb-12 text-loyal-blue">
+        Why Join Toastmasters?
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="bg-cool-gray bg-opacity-20 p-6 rounded-lg">
+          <div class="text-true-maroon text-4xl mb-4">🎤</div>
+          <h3 class="font-heading text-xl font-bold mb-3 text-loyal-blue">
+            Improve Your Speaking
+          </h3>
+          <p class="font-body text-gray-700">
+            Develop confidence and skill in public speaking through regular practice and constructive feedback in a supportive environment.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-cool-gray bg-opacity-20 p-6 rounded-lg">
+          <div class="text-true-maroon text-4xl mb-4">👥</div>
+          <h3 class="font-heading text-xl font-bold mb-3 text-loyal-blue">
+            Build Leadership Skills
+          </h3>
+          <p class="font-body text-gray-700">
+            Take on club roles and leadership opportunities to develop essential skills for your career and personal life.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-cool-gray bg-opacity-20 p-6 rounded-lg">
+          <div class="text-true-maroon text-4xl mb-4">🤝</div>
+          <h3 class="font-heading text-xl font-bold mb-3 text-loyal-blue">
+            Connect with Others
+          </h3>
+          <p class="font-body text-gray-700">
+            Network with supportive individuals who share your goals and celebrate your achievements along the journey.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-center mb-12 text-loyal-blue">
+        How It Works
+      </h2>
+      <div class="max-w-3xl mx-auto space-y-8">
+        <!-- Step 1 -->
+        <div class="flex gap-6">
+          <div class="flex-shrink-0 w-12 h-12 bg-true-maroon text-white rounded-full flex items-center justify-center font-heading font-bold text-xl">
+            1
+          </div>
+          <div>
+            <h3 class="font-heading text-xl font-bold mb-2 text-loyal-blue">Visit as a Guest</h3>
+            <p class="font-body text-gray-700">
+              Come to one of our meetings as a guest. There's no obligation to speak—just observe and see if Toastmasters is right for you.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flex gap-6">
+          <div class="flex-shrink-0 w-12 h-12 bg-true-maroon text-white rounded-full flex items-center justify-center font-heading font-bold text-xl">
+            2
+          </div>
+          <div>
+            <h3 class="font-heading text-xl font-bold mb-2 text-loyal-blue">Join the Club</h3>
+            <p class="font-body text-gray-700">
+              Once you've decided to join, you'll become a member of both our club and Toastmasters International, giving you access to proven learning materials.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flex gap-6">
+          <div class="flex-shrink-0 w-12 h-12 bg-true-maroon text-white rounded-full flex items-center justify-center font-heading font-bold text-xl">
+            3
+          </div>
+          <div>
+            <h3 class="font-heading text-xl font-bold mb-2 text-loyal-blue">Follow Your Path</h3>
+            <p class="font-body text-gray-700">
+              Choose a Pathways learning track that aligns with your goals, complete projects, give speeches, and develop your skills at your own pace.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="flex gap-6">
+          <div class="flex-shrink-0 w-12 h-12 bg-true-maroon text-white rounded-full flex items-center justify-center font-heading font-bold text-xl">
+            4
+          </div>
+          <div>
+            <h3 class="font-heading text-xl font-bold mb-2 text-loyal-blue">Grow and Achieve</h3>
+            <p class="font-body text-gray-700">
+              Receive evaluations, take on leadership roles, and watch your confidence grow as you achieve your communication and leadership goals.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meeting Info Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-center mb-12 text-loyal-blue">
+        Join Us at Our Next Meeting
+      </h2>
+      <div class="max-w-2xl mx-auto bg-cool-gray bg-opacity-20 p-8 rounded-lg">
+        <div class="space-y-4">
+          <div>
+            <h3 class="font-heading font-semibold text-lg mb-2 text-loyal-blue">Location</h3>
+            <p class="font-body text-gray-700">
+              {clubConfig.meetingLocationName}<br />
+              {clubConfig.meetingAddress}
+            </p>
+          </div>
+          <div>
+            <h3 class="font-heading font-semibold text-lg mb-2 text-loyal-blue">Meeting Details</h3>
+            <p class="font-body text-gray-700">
+              {clubConfig.meetingSummary}
+            </p>
+          </div>
+          <div class="pt-4">
+            <a
+              href={`mailto:${clubConfig.contactEmail}`}
+              class="bg-true-maroon hover:bg-opacity-90 text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-block"
+            >
+              Get in Touch
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-loyal-blue text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6">
+        Ready to Start Your Journey?
+      </h2>
+      <p class="font-body text-xl mb-8 max-w-2xl mx-auto">
+        Join us at {clubConfig.clubName} and discover your potential as a confident communicator and leader.
+      </p>
+      <a
+        href={`mailto:${clubConfig.contactEmail}`}
+        class="bg-happy-yellow text-loyal-blue hover:bg-opacity-90 px-8 py-3 rounded-lg font-bold transition-colors inline-block"
+      >
+        Contact Us Today
+      </a>
+    </div>
+  </section>
+</Layout>

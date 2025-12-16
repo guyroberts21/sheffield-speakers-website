@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+
+function formatDate(date: Date): string {
+  return new Intl.DateTimeFormat('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  }).format(date);
+}
+---
+
+<Layout title={article.data.title} description={article.data.description}>
+  <article class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <!-- Back link -->
+        <a
+          href="/resources"
+          class="inline-flex items-center text-true-maroon hover:underline font-body mb-8"
+        >
+          ← Back to Resources
+        </a>
+
+        <!-- Article header -->
+        <header class="mb-8">
+          <h1 class="font-heading text-4xl md:text-5xl font-bold mb-4 text-loyal-blue">
+            {article.data.title}
+          </h1>
+          <div class="flex flex-wrap gap-3 text-sm text-gray-600 font-body">
+            <span>By {article.data.author}</span>
+            <span>•</span>
+            <time datetime={article.data.publishDate.toISOString()}>
+              {formatDate(article.data.publishDate)}
+            </time>
+          </div>
+        </header>
+
+        <!-- Article content -->
+        <div class="prose prose-lg max-w-none font-body
+          prose-headings:font-heading prose-headings:text-loyal-blue prose-headings:font-bold
+          prose-p:text-gray-700 prose-p:leading-relaxed
+          prose-a:text-true-maroon prose-a:no-underline hover:prose-a:underline
+          prose-strong:text-loyal-blue
+          prose-ul:text-gray-700 prose-ol:text-gray-700
+          prose-li:marker:text-true-maroon
+        ">
+          <Content />
+        </div>
+
+        <!-- Back to top -->
+        <div class="mt-12 pt-8 border-t border-gray-200">
+          <a
+            href="/resources"
+            class="inline-flex items-center text-true-maroon hover:underline font-body font-semibold"
+          >
+            ← Back to Resources
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+</Layout>

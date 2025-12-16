@@ -1,0 +1,50 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Uncomment for local development
+# local_backend: true
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "articles"
+    label: "Articles"
+    folder: "src/content/articles"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Publish Date", name: "publishDate", widget: "datetime" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "config"
+    label: "Site Configuration"
+    files:
+      - label: "Club Details"
+        name: "club"
+        file: "src/config/club.ts"
+        fields:
+          - label: "Club Configuration"
+            name: "clubConfig"
+            widget: "object"
+            fields:
+              - { label: "Club Name", name: "clubName", widget: "string" }
+              - { label: "City", name: "city", widget: "string" }
+              - { label: "Country", name: "country", widget: "string" }
+              - { label: "Contact Email", name: "contactEmail", widget: "string" }
+              - { label: "Meeting Summary", name: "meetingSummary", widget: "text" }
+              - { label: "Meeting Location Name", name: "meetingLocationName", widget: "string" }
+              - { label: "Meeting Address", name: "meetingAddress", widget: "text" }
+              - { label: "Mission Statement", name: "missionStatement", widget: "text" }
+              - label: "Social Media"
+                name: "socials"
+                widget: "object"
+                fields:
+                  - { label: "Facebook URL", name: "facebook", widget: "string", required: false }
+                  - { label: "Instagram Handle", name: "instagram", widget: "string", required: false }
+                  - { label: "LinkedIn URL", name: "linkedin", widget: "string", required: false }
