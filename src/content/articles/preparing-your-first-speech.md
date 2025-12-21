@@ -44,7 +44,7 @@ Use a simple structure:
 * Practice in front of a mirror or record yourself
 * Avoid memorizing word-for-word—speak naturally
 
-### On the Day
+## On the Day
 
 * Arrive early and settle in
 * Take deep breaths to calm any nerves
