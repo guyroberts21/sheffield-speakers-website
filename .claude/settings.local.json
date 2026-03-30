@@ -4,7 +4,12 @@
       "Bash(npm install:*)",
       "Bash(npm run build:*)",
       "Bash(npm run dev:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(xargs ls:*)",
+      "WebFetch(domain:ccdn.toastmasters.org)",
+      "WebSearch",
+      "WebFetch(domain:www.toastmasters.org)",
+      "WebFetch(domain:www.valleytoastmasters.net)"
     ]
   }
 }

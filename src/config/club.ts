@@ -4,7 +4,6 @@ export const clubConfig = {
   country: "UK",
   contactEmail: "sheffieldspeakerstm@gmail.com",
   meetingTime: "19:00",
-
   meetingSummary: "We meet in Sheffield city centre every 2nd, 3rd & 4th Wednesday of the month. Guests are welcome - check our Facebook page for the next meeting details.",
   meetingLocationName: "The Showroom",
   meetingAddress: "Paternoster Row, Sheffield City Centre, Sheffield S1 2BX",
