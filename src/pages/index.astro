@@ -1,6 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { clubConfig } from '../config/club';
+import { getCollection } from 'astro:content';
+
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const videoArticles = allArticles
+  .filter(a => a.data.videoUrl)
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+
+function getYouTubeId(url: string): string | null {
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=))([^&\n?#]+)/);
+  return match ? match[1] : null;
+}
 ---
 
 <Layout title={clubConfig.clubName}>
@@ -135,6 +146,55 @@ import { clubConfig } from '../config/club';
       </div>
     </div>
   </section>
+
+  <!-- New Member Guides Section -->
+  {videoArticles.length > 0 && (
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-center mb-4 text-loyal-blue">
+          Essential Guides for New Members
+        </h2>
+        <p class="font-body text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+          Watch these short video guides to get up and running with the tools we use at Sheffield Speakers.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {videoArticles.map(article => {
+            const videoId = article.data.videoUrl ? getYouTubeId(article.data.videoUrl) : null;
+            return (
+              <div class="bg-cool-gray bg-opacity-20 rounded-lg overflow-hidden">
+                {videoId && (
+                  <div class="aspect-video">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${videoId}`}
+                      class="w-full h-full"
+                      title={article.data.title}
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                )}
+                <div class="p-6">
+                  <h3 class="font-heading text-xl font-bold mb-3 text-loyal-blue">
+                    {article.data.title}
+                  </h3>
+                  <p class="font-body text-gray-700 mb-4">
+                    {article.data.description}
+                  </p>
+                  <a
+                    href={`/resources/${article.slug}`}
+                    class="inline-flex items-center text-true-maroon font-semibold font-body hover:underline"
+                  >
+                    Read the guide →
+                  </a>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Meeting Info Section -->
   <section class="py-16 bg-white">

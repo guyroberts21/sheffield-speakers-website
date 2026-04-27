@@ -8,6 +8,7 @@ const articles = defineCollection({
     author: z.string(),
     publishDate: z.date(),
     draft: z.boolean().default(false),
+    videoUrl: z.string().url().optional(),
   }),
 });
 
